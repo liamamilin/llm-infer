@@ -1,3 +1,3 @@
-# E00 最小推理实验（NOT_RUN）
+# E00 最小推理实验
 
-请 Codex 先做硬件探测和权限确认，再在此目录实现最小小模型推理脚本，运行并验收。当前没有真实模型运行记录。
+`smoke.py` 加载固定 revision 的 SmolLM2-135M-Instruct 并生成一段文本。运行：`python -m experiments.ch00.smoke`，结果见 `evidence/public/ch00-smoke.json`（PASS）。

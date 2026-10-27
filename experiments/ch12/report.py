@@ -27,9 +27,9 @@ def build() -> tuple[str, dict]:
     q = load("ch07-quant_hf")["results"]
     b5 = load("ch05-bench")["results"]
 
-    L = ["---", "title: '评估报告'", "description: '由 evidence/public 自动生成，不含手写数字'", "---", "",
+    L = ["---", "title: '评估报告'", "description: '实验清单与关键数字由证据自动生成；局限一节为手写'", "---", "",
          "# 评估报告", "",
-         "> 本页由 `python -m experiments.ch12.report` 从 `evidence/public/*.json` 生成。页面里的每个数字都能在对应证据文件里找到。", "",
+         "> 本页由 `python -m experiments.ch12.report` 生成。第 1、2 节的表格直接取自 `evidence/public/*.json`，每个数字都能在对应证据里找到；第 3 节“局限”是手写的说明，其中的数字请以对应章节和证据为准。", "",
          "## 1. 实验清单", "",
          "| 章 | 实验 | 状态 | 设备 | 模型 | 断言 | 证据 |", "|---|---|---|---|---|---|---|"]
     for r in runs:
