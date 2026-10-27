@@ -1,0 +1,223 @@
+{
+  "chapter_id": "ch02",
+  "experiment_id": "trace",
+  "status": "PASS",
+  "timestamp": "2026-10-27T06:43:31.279821+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch02.trace",
+  "assertions": {
+    "manual_loop_matches_generate": true,
+    "prefill_consumed_whole_prompt": true,
+    "decode_steps_feed_one_token": true,
+    "cache_length_is_prompt_plus_decoded": true
+  },
+  "git_sha": "fb533de5997ea03160362a48e7ffd19ea84bbdfa",
+  "notes": "",
+  "prompt": "The capital of France is",
+  "prompt_token_count": 5,
+  "steps": [
+    {
+      "step": 0,
+      "phase": "prefill",
+      "input_tokens": 5,
+      "cache_len_before": 0,
+      "chosen": 7042,
+      "chosen_text": " Paris",
+      "chosen_prob": 0.4693,
+      "top3": [
+        [
+          " Paris",
+          0.4693
+        ],
+        [
+          " the",
+          0.2657
+        ],
+        [
+          " located",
+          0.0831
+        ]
+      ]
+    },
+    {
+      "step": 1,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 5,
+      "chosen": 30,
+      "chosen_text": ".",
+      "chosen_prob": 0.5389,
+      "top3": [
+        [
+          ".",
+          0.5389
+        ],
+        [
+          ",",
+          0.4194
+        ],
+        [
+          " and",
+          0.0155
+        ]
+      ]
+    },
+    {
+      "step": 2,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 6,
+      "chosen": 7042,
+      "chosen_text": " Paris",
+      "chosen_prob": 0.3909,
+      "top3": [
+        [
+          " Paris",
+          0.3909
+        ],
+        [
+          "\n",
+          0.2499
+        ],
+        [
+          " It",
+          0.1064
+        ]
+      ]
+    },
+    {
+      "step": 3,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 7,
+      "chosen": 314,
+      "chosen_text": " is",
+      "chosen_prob": 0.8907,
+      "top3": [
+        [
+          " is",
+          0.8907
+        ],
+        [
+          " has",
+          0.032
+        ],
+        [
+          " serves",
+          0.0289
+        ]
+      ]
+    },
+    {
+      "step": 4,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 8,
+      "chosen": 260,
+      "chosen_text": " the",
+      "chosen_prob": 0.3537,
+      "top3": [
+        [
+          " the",
+          0.3537
+        ],
+        [
+          " a",
+          0.322
+        ],
+        [
+          " known",
+          0.1304
+        ]
+      ]
+    },
+    {
+      "step": 5,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 9,
+      "chosen": 3995,
+      "chosen_text": " largest",
+      "chosen_prob": 0.3268,
+      "top3": [
+        [
+          " largest",
+          0.3268
+        ],
+        [
+          " political",
+          0.1997
+        ],
+        [
+          " city",
+          0.0594
+        ]
+      ]
+    },
+    {
+      "step": 6,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 10,
+      "chosen": 2240,
+      "chosen_text": " city",
+      "chosen_prob": 0.7544,
+      "top3": [
+        [
+          " city",
+          0.7544
+        ],
+        [
+          " and",
+          0.1519
+        ],
+        [
+          " European",
+          0.0301
+        ]
+      ]
+    },
+    {
+      "step": 7,
+      "phase": "decode",
+      "input_tokens": 1,
+      "cache_len_before": 11,
+      "chosen": 281,
+      "chosen_text": " in",
+      "chosen_prob": 0.9345,
+      "top3": [
+        [
+          " in",
+          0.9345
+        ],
+        [
+          " and",
+          0.0487
+        ],
+        [
+          ",",
+          0.0068
+        ]
+      ]
+    }
+  ],
+  "prefill_seconds": 0.3266,
+  "generated_ids": [
+    7042,
+    30,
+    7042,
+    314,
+    260,
+    3995,
+    2240,
+    281
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "chapter_id": "ch06",
+  "experiment_id": "kv_cache",
+  "status": "PASS",
+  "timestamp": "2026-10-27T06:46:41.381872+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch06.kv_cache",
+  "assertions": {
+    "kv_size_formula_matches_actual_tensors": true,
+    "kv_size_linear_in_sequence_length": true,
+    "prefill_growth_is_cache_plus_full_logits": true,
+    "gqa_cache_is_smaller_than_full_mha": true,
+    "cache_does_not_change_greedy_output": true,
+    "cache_speeds_up_decode": true
+  },
+  "git_sha": "fb533de5997ea03160362a48e7ffd19ea84bbdfa",
+  "notes": "",
+  "dtype": "float32",
+  "per_token_kv_bytes": 46080,
+  "weights_bytes": 538060032,
+  "rows": [
+    {
+      "seq_len": 128,
+      "theory_bytes": 5898240,
+      "actual_cache_bytes": 5898240,
+      "device_alloc_growth_bytes": 31064064,
+      "full_logits_bytes": 25165824
+    },
+    {
+      "seq_len": 512,
+      "theory_bytes": 23592960,
+      "actual_cache_bytes": 23592960,
+      "device_alloc_growth_bytes": 124256256,
+      "full_logits_bytes": 100663296
+    },
+    {
+      "seq_len": 2048,
+      "theory_bytes": 94371840,
+      "actual_cache_bytes": 94371840,
+      "device_alloc_growth_bytes": 497811456,
+      "full_logits_bytes": 402653184
+    }
+  ],
+  "mha_per_token_bytes": 138240,
+  "cache_on_seconds": 0.293,
+  "cache_off_seconds": 2.339,
+  "new_tokens": 48,
+  "prompt_tokens": 512
+}

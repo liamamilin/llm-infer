@@ -1,0 +1,35 @@
+{
+  "chapter_id": "ch04",
+  "experiment_id": "http_stream",
+  "status": "PASS",
+  "timestamp": "2026-10-27T06:45:10.133724+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch04.verify",
+  "assertions": {
+    "health_ok": true,
+    "stream_equals_non_stream": true,
+    "usage_counts_completion_tokens": true,
+    "stream_arrives_incrementally": true,
+    "invalid_request_rejected_422": true
+  },
+  "git_sha": "fb533de5997ea03160362a48e7ffd19ea84bbdfa",
+  "notes": "",
+  "startup_seconds": 5.1,
+  "chunks": 40,
+  "first_chunk_seconds": 0.0204,
+  "last_chunk_seconds": 0.4159,
+  "non_stream_text": "Once upon a time, there was a cat named Whiskers. Whiskers was a curious and playful cat who loved to explore and learn new things. One day, Whiskers decided to",
+  "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 40,
+    "total_tokens": 78
+  }
+}

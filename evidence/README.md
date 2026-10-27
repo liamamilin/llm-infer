@@ -7,5 +7,10 @@
 |---|---|---|
 | ch00 smoke | PASS（Apple M4 Pro / MPS） | [`public/ch00-smoke.json`](public/ch00-smoke.json) |
 | ch01 assets | PASS | [`public/ch01-assets.json`](public/ch01-assets.json) |
+| ch02 trace | PASS | [`public/ch02-trace.json`](public/ch02-trace.json) |
+| ch03 sampling | PASS | [`public/ch03-sampling.json`](public/ch03-sampling.json) |
+| ch04 http_stream | PASS | [`public/ch04-http_stream.json`](public/ch04-http_stream.json) |
+| ch05 bench | PASS | [`public/ch05-bench.json`](public/ch05-bench.json) |
+| ch06 kv_cache | PASS | [`public/ch06-kv_cache.json`](public/ch06-kv_cache.json) |
 
 其余章节：`NOT_RUN`。

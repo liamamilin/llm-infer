@@ -25,7 +25,12 @@ export default defineConfig({
         ] },
         { text: '实践章节', items: [
           { text: '00 · 环境与首次推理', link: '/chapters/ch00' },
-          { text: '01 · 模型资产', link: '/chapters/ch01' }
+          { text: '01 · 模型资产', link: '/chapters/ch01' },
+          { text: '02 · 从 Token 到输出', link: '/chapters/ch02' },
+          { text: '03 · 生成控制', link: '/chapters/ch03' },
+          { text: '04 · HTTP 与流式', link: '/chapters/ch04' },
+          { text: '05 · 基准测试', link: '/chapters/ch05' },
+          { text: '06 · 内存与 KV Cache', link: '/chapters/ch06' }
         ] }
       ]
     },

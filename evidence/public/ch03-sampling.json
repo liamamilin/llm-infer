@@ -1,0 +1,65 @@
+{
+  "chapter_id": "ch03",
+  "experiment_id": "sampling",
+  "status": "PASS",
+  "timestamp": "2026-10-27T06:43:52.888186+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch03.sampling",
+  "assertions": {
+    "greedy_is_deterministic": true,
+    "same_seed_same_output": true,
+    "different_seed_differs": true,
+    "higher_temperature_flattens_distribution": true,
+    "max_new_tokens_respected": true,
+    "stop_string_ends_generation": true
+  },
+  "git_sha": "fb533de5997ea03160362a48e7ffd19ea84bbdfa",
+  "notes": "",
+  "prompt": "Once upon a time, in a small village,",
+  "distribution": [
+    {
+      "temperature": 0.2,
+      "top1_prob": 0.9978,
+      "entropy_nats": 0.016,
+      "tokens_to_cover_90pct": 1
+    },
+    {
+      "temperature": 0.7,
+      "top1_prob": 0.8125,
+      "entropy_nats": 0.719,
+      "tokens_to_cover_90pct": 2
+    },
+    {
+      "temperature": 1.0,
+      "top1_prob": 0.5917,
+      "entropy_nats": 1.991,
+      "tokens_to_cover_90pct": 14
+    },
+    {
+      "temperature": 1.5,
+      "top1_prob": 0.1903,
+      "entropy_nats": 5.98,
+      "tokens_to_cover_90pct": 2961
+    }
+  ],
+  "generations": {
+    "greedy": " there lived a wise old man named Thorne. Thorne was a master of the arcane arts, and he had",
+    "greedy_again": " there lived a wise old man named Thorne. Thorne was a master of the arcane arts, and he had",
+    "temp0.3_seed7": " there lived a wise old man named Thorne. Thorne was a master of the arcane arts, able to communicate",
+    "temp0.8_seed7": " there lived a wise man named Farmer Thorne. He was known for his helpfulness and generosity. He would often help",
+    "temp1.5_seed7": "Princess April walked, yesterday riding in art Victoria trichorns Mini-Me Army saucer(((½ Lewispoints for identification",
+    "temp0.8_seed7_again": " there lived a wise man named Farmer Thorne. He was known for his helpfulness and generosity. He would often help",
+    "temp0.8_seed8": " the village elder, known as the \"Prophecy Prophet,\" had received information from an ancient text said to be hidden",
+    "temp0.8_top_p0.5_seed7": " there lived a wise old man named Thorne. Thorne was a skilled healer who had spent his life studying the"
+  },
+  "max_new_tokens_5": " there lived a wise old",
+  "stop_dot": " there lived a wise old man named Thorne."
+}

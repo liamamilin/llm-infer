@@ -1,0 +1,150 @@
+{
+  "chapter_id": "ch05",
+  "experiment_id": "bench",
+  "status": "PASS",
+  "timestamp": "2026-10-27T06:46:00.456260+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch05.bench",
+  "assertions": {
+    "every_run_produced_exact_token_count": true,
+    "e2e_equals_ttft_plus_decode_time": true,
+    "ttft_grows_with_prompt_length": true,
+    "measured_repeats": true
+  },
+  "git_sha": "fb533de5997ea03160362a48e7ffd19ea84bbdfa",
+  "notes": "",
+  "conditions": {
+    "dtype": "float32",
+    "batch": 1,
+    "concurrency": 1,
+    "prompt_tokens": [
+      32,
+      128,
+      512
+    ],
+    "output_tokens": 64,
+    "warmup": 3,
+    "repeats": 10,
+    "decoding": "greedy",
+    "units": "seconds; tok_s_decode in tokens/second"
+  },
+  "results": {
+    "32": {
+      "ttft": {
+        "mean": 0.0149,
+        "std": 0.00048,
+        "p50": 0.01486,
+        "p95": 0.01613,
+        "min": 0.01433,
+        "max": 0.01613
+      },
+      "tpot": {
+        "mean": 0.01,
+        "std": 0.00013,
+        "p50": 0.01003,
+        "p95": 0.0102,
+        "min": 0.00975,
+        "max": 0.0102
+      },
+      "e2e": {
+        "mean": 0.64466,
+        "std": 0.00837,
+        "p50": 0.64731,
+        "p95": 0.65799,
+        "min": 0.6287,
+        "max": 0.65799
+      },
+      "tok_s_decode": {
+        "mean": 100.05524,
+        "std": 1.30298,
+        "p50": 99.96606,
+        "p95": 102.60709,
+        "min": 97.99676,
+        "max": 102.60709
+      }
+    },
+    "128": {
+      "ttft": {
+        "mean": 0.02125,
+        "std": 0.00032,
+        "p50": 0.02131,
+        "p95": 0.02183,
+        "min": 0.02066,
+        "max": 0.02183
+      },
+      "tpot": {
+        "mean": 0.00991,
+        "std": 0.00012,
+        "p50": 0.00992,
+        "p95": 0.01013,
+        "min": 0.00975,
+        "max": 0.01013
+      },
+      "e2e": {
+        "mean": 0.64562,
+        "std": 0.00752,
+        "p50": 0.64593,
+        "p95": 0.65946,
+        "min": 0.635,
+        "max": 0.65946
+      },
+      "tok_s_decode": {
+        "mean": 100.91469,
+        "std": 1.1916,
+        "p50": 100.90086,
+        "p95": 102.54801,
+        "min": 98.75823,
+        "max": 102.54801
+      }
+    },
+    "512": {
+      "ttft": {
+        "mean": 0.05269,
+        "std": 0.00054,
+        "p50": 0.05247,
+        "p95": 0.0536,
+        "min": 0.05205,
+        "max": 0.0536
+      },
+      "tpot": {
+        "mean": 0.01061,
+        "std": 0.00018,
+        "p50": 0.01067,
+        "p95": 0.01082,
+        "min": 0.01018,
+        "max": 0.01082
+      },
+      "e2e": {
+        "mean": 0.72114,
+        "std": 0.01127,
+        "p50": 0.72456,
+        "p95": 0.73478,
+        "min": 0.69391,
+        "max": 0.73478
+      },
+      "tok_s_decode": {
+        "mean": 94.27394,
+        "std": 1.60107,
+        "p50": 93.77706,
+        "p95": 98.21304,
+        "min": 92.4626,
+        "max": 98.21304
+      }
+    }
+  },
+  "cold_first_run": {
+    "tokens": 64,
+    "ttft": 0.18448883388191462,
+    "tpot": 0.009821103826638252,
+    "e2e": 0.8032183749601245,
+    "tok_s_decode": 101.82154853995657
+  }
+}

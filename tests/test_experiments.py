@@ -1,4 +1,4 @@
-"""实验的端到端测试：需要 .venv 已装好 requirements.txt；缺依赖或模型时自动跳过。"""
+"""实验的端到端测试（ch05 基准耗时较长，不放进测试，手动运行）：需要 .venv 已装好 requirements.txt；缺依赖或模型时自动跳过。"""
 import subprocess
 import sys
 import unittest
@@ -22,6 +22,24 @@ class ExperimentTest(unittest.TestCase):
 
     def test_ch01_assets(self):
         r = run("experiments.ch01.inspect_assets")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertIn("PASS", r.stdout)
+
+
+    def test_ch02_trace(self):
+        self.assertPass("experiments.ch02.trace")
+
+    def test_ch03_sampling(self):
+        self.assertPass("experiments.ch03.sampling")
+
+    def test_ch04_http_stream(self):
+        self.assertPass("experiments.ch04.verify")
+
+    def test_ch06_kv_cache(self):
+        self.assertPass("experiments.ch06.kv_cache")
+
+    def assertPass(self, module):
+        r = run(module)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("PASS", r.stdout)
 

@@ -26,6 +26,7 @@ npm run docs:build
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m experiments.ch00.smoke
 .venv/bin/python -m experiments.ch01.inspect_assets
+.venv/bin/python -m experiments.ch02.trace          # 另有 ch03.sampling / ch04.verify / ch05.bench / ch06.kv_cache
 ```
 
 Python 标准库预检：
