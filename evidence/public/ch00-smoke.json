@@ -1,0 +1,36 @@
+{
+  "chapter_id": "ch00",
+  "experiment_id": "smoke",
+  "status": "PASS",
+  "timestamp": "2026-10-27T05:24:52.410429+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "torch": "2.14.1",
+    "transformers": "5.21.0"
+  },
+  "exact_command": "python -m experiments.ch00.smoke",
+  "assertions": {
+    "generated_at_least_1_token": true,
+    "decoded_non_empty": true
+  },
+  "git_sha": "unknown",
+  "notes": "",
+  "prompt": "The capital of France is",
+  "new_token_ids": [
+    7042,
+    30,
+    7042,
+    314,
+    260,
+    3995,
+    2240,
+    281
+  ],
+  "continuation": " Paris. Paris is the largest city in",
+  "load_seconds": 0.47,
+  "generate_seconds": 0.145
+}

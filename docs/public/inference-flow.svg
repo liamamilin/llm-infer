@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 330" role="img" aria-label="推理流程示意图：输入文本、Tokenizer、Prefill、Decode、输出文本，并复用 KV Cache">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eaf6f6"/><stop offset="1" stop-color="#eff3ff"/></linearGradient><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#4b7483" stroke-width="1.4"/></marker></defs>
+<rect width="1120" height="330" rx="23" fill="url(#g)"/>
+<text x="40" y="45" font-size="21" font-family="system-ui,Arial" font-weight="700" fill="#1d5061">一次大模型推理请求</text>
+<text x="40" y="70" font-size="13" font-family="system-ui,Arial" fill="#587b87">概念示意 · 不表示具体引擎的真实耗时</text>
+<g font-family="system-ui,Arial" text-anchor="middle" fill="#173d52">
+<rect x="34" y="104" width="156" height="92" rx="15" fill="#fff" stroke="#b9d5dd"/><text x="112" y="142" font-size="20" font-weight="600">输入文本</text><text x="112" y="167" font-size="12" fill="#687e8b">Prompt</text>
+<rect x="253" y="104" width="156" height="92" rx="15" fill="#fff" stroke="#b9d5dd"/><text x="331" y="142" font-size="20" font-weight="600">Tokenizer</text><text x="331" y="167" font-size="12" fill="#687e8b">Token IDs</text>
+<rect x="472" y="104" width="156" height="92" rx="15" fill="#e5f3f2" stroke="#82b8b6"/><text x="550" y="142" font-size="20" font-weight="600">Prefill</text><text x="550" y="167" font-size="12" fill="#687e8b">处理输入上下文</text>
+<rect x="691" y="104" width="156" height="92" rx="15" fill="#e8efff" stroke="#97afe2"/><text x="769" y="142" font-size="20" font-weight="600">Decode</text><text x="769" y="167" font-size="12" fill="#687e8b">逐 Token 生成</text>
+<rect x="910" y="104" width="174" height="92" rx="15" fill="#fff" stroke="#b9d5dd"/><text x="997" y="142" font-size="20" font-weight="600">输出文本</text><text x="997" y="167" font-size="12" fill="#687e8b">满足停止条件</text>
+<rect x="614" y="245" width="170" height="60" rx="13" fill="#fff" stroke="#9ebbbf" stroke-dasharray="5 4"/><text x="699" y="274" font-size="19" font-weight="600">KV Cache</text><text x="699" y="292" font-size="12" fill="#687e8b">复用注意力状态</text>
+</g>
+<g stroke="#4b7483" stroke-width="2.4" fill="none" marker-end="url(#arrow)"><path d="M197 151 H246"/><path d="M416 151 H465"/><path d="M635 151 H684"/><path d="M854 151 H902"/><path d="M550 200 V275 H604"/><path d="M791 275 H820 V202"/></g>
+</svg>

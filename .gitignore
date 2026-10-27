@@ -1,0 +1,25 @@
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example
+*.pyc
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+models/
+local_data/
+.cache/
+.DS_Store
+# 原始设备日志以及可能有隐私的实测 evidence 默认不公开提交
+evidence/runs/*
+!evidence/runs/.gitkeep
+evidence/environment.json
