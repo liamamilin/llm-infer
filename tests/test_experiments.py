@@ -38,6 +38,12 @@ class ExperimentTest(unittest.TestCase):
     def test_ch06_kv_cache(self):
         self.assertPass("experiments.ch06.kv_cache")
 
+    def test_ch11_guardrails(self):
+        self.assertPass("experiments.ch11.verify")
+
+    def test_ch12_report(self):
+        self.assertPass("experiments.ch12.report")
+
     def assertPass(self, module):
         r = run(module)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
