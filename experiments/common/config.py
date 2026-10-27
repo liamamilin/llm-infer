@@ -12,6 +12,11 @@ ALLOW_PATTERNS = [
 
 ROOT = Path(__file__).resolve().parents[2]
 MODEL_DIR = ROOT / "models" / "smollm2-135m-instruct"
+
+# 第 07—10 章在 GPU 上换用同系列的 1.7B 模型：135M 太小，量化/并发的收益看不出来。
+MODEL_LARGE_ID = "HuggingFaceTB/SmolLM2-1.7B-Instruct"
+MODEL_LARGE_REVISION = "31b70e2e869a7173562077fd711b654946d38674"
+MODEL_LARGE_DIR = ROOT / "models" / "smollm2-1.7b-instruct"
 RUNS_DIR = ROOT / "evidence" / "runs"
 
 

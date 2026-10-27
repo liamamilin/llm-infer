@@ -1,0 +1,58 @@
+{
+  "chapter_id": "ch10",
+  "experiment_id": "decide",
+  "status": "PASS",
+  "timestamp": "2026-10-27T13:48:26.565519+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "none (reads evidence)",
+  "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "model_revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "runtime": "summary",
+  "runtime_version": {},
+  "exact_command": "python -m experiments.ch10.decide",
+  "assertions": {
+    "all_source_evidence_passed": true,
+    "sources_ran_on_same_gpu": true,
+    "transformers_starts_faster": true,
+    "vllm_uses_more_gpu_memory_reserving_kv": true,
+    "vllm_wins_single_request_too": true,
+    "vllm_wins_big_at_16": true
+  },
+  "git_sha": "777e1c8d6c35d455cc3e86c7f858dbc290b68ddc",
+  "notes": "",
+  "table": {
+    "startup_seconds": {
+      "transformers_server": 7.4,
+      "vllm": 34.5
+    },
+    "gpu_memory_mb_after_start": {
+      "transformers_server": 4122,
+      "vllm": 16296
+    },
+    "single_request_e2e_p50_s": {
+      "transformers_server": 2.252,
+      "vllm": 0.728
+    },
+    "tok_s_at_concurrency_1": {
+      "transformers_server": 56.9,
+      "vllm": 169.1
+    },
+    "tok_s_at_concurrency_16": {
+      "transformers_server": 42.0,
+      "vllm": 2198.9
+    },
+    "ttft_p50_s_at_concurrency_16": {
+      "transformers_server": 44.789,
+      "vllm": 0.073
+    },
+    "prefix_cache_speedup_x": 2.53,
+    "weights_mb": {
+      "bf16": 3422.8,
+      "nf4": 1006.8,
+      "vllm_bf16_gib": 3.19,
+      "vllm_fp8_gib": 1.69
+    }
+  },
+  "sglang": "NOT_RUN: 未安装、未测试，本书不对其给出结论",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER"
+}

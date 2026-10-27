@@ -30,7 +30,11 @@ export default defineConfig({
           { text: '03 · 生成控制', link: '/chapters/ch03' },
           { text: '04 · HTTP 与流式', link: '/chapters/ch04' },
           { text: '05 · 基准测试', link: '/chapters/ch05' },
-          { text: '06 · 内存与 KV Cache', link: '/chapters/ch06' }
+          { text: '06 · 内存与 KV Cache', link: '/chapters/ch06' },
+          { text: '07 · 量化（GPU）', link: '/chapters/ch07' },
+          { text: '08 · Prefix Caching（GPU）', link: '/chapters/ch08' },
+          { text: '09 · Batching 与并发（GPU）', link: '/chapters/ch09' },
+          { text: '10 · 引擎选型', link: '/chapters/ch10' }
         ] }
       ]
     },

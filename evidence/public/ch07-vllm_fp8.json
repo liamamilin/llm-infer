@@ -1,0 +1,43 @@
+{
+  "chapter_id": "ch07",
+  "experiment_id": "vllm_fp8",
+  "status": "PASS",
+  "timestamp": "2026-10-27T12:32:02.150432+00:00",
+  "platform": "Linux x86_64 py3.12.3",
+  "device": "cuda",
+  "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "model_revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "runtime": "vllm",
+  "runtime_version": {
+    "torch": "2.13.0+cu130"
+  },
+  "exact_command": "python -m experiments.ch07.vllm_fp8",
+  "assertions": {
+    "both_generated_exact_token_count": true,
+    "fp8_weights_smaller": true,
+    "fp8_outputs_are_text": true
+  },
+  "git_sha": "unknown",
+  "notes": "",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "conditions": {
+    "prompts": 64,
+    "output_tokens_each": 128,
+    "decoding": "greedy",
+    "max_model_len": 4096,
+    "batch": "vLLM continuous batching, 64 requests at once"
+  },
+  "bf16": {
+    "tok_s": 6422.8,
+    "seconds": 1.275,
+    "weights_gib": 3.19
+  },
+  "fp8": {
+    "tok_s": 7890.6,
+    "seconds": 1.038,
+    "weights_gib": 1.69
+  },
+  "identical_prefix_fraction_vs_bf16": 0.114,
+  "bf16_sample": "\nassistant\nThe sea, a vast expanse of blue, whispers secrets to the wind, its waves caressing the shore with gentle lapping. Trains, like time-traveling spirits, glide effortlessly across the landscap",
+  "fp8_sample": "\nassistant\nThe sea, trains, bread, or rain - each holds a special place in the heart of a traveler, a reminder of the countless journeys and experiences that have shaped the soul. The sea, with its en"
+}

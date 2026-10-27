@@ -1,0 +1,61 @@
+{
+  "chapter_id": "ch07",
+  "experiment_id": "quant_hf",
+  "status": "PASS",
+  "timestamp": "2026-10-27T12:09:59.783873+00:00",
+  "platform": "Linux x86_64 py3.12.3",
+  "device": "cuda",
+  "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "model_revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "runtime": "transformers+bitsandbytes",
+  "runtime_version": {
+    "torch": "2.13.0+cu130",
+    "transformers": "5.19.0"
+  },
+  "exact_command": "python -m experiments.ch07.quant_hf",
+  "assertions": {
+    "weights_shrink_bf16_gt_int8_gt_nf4": true,
+    "perplexity_finite": true,
+    "quantized_ppl_within_25pct_of_bf16": true,
+    "all_variants_generate_text": true
+  },
+  "git_sha": "unknown",
+  "notes": "",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "conditions": {
+    "batch": 1,
+    "new_tokens": 128,
+    "warmup": 2,
+    "repeats": 5,
+    "ppl": "wikitext-2 test, first 24576 tokens, window 1024"
+  },
+  "results": {
+    "bf16": {
+      "weights_mb": 3422.8,
+      "load_seconds": 767.1,
+      "perplexity": 9.541,
+      "tok_s_p50": 58.4,
+      "seconds_p50": 2.192,
+      "peak_alloc_mb": 3460.3,
+      "sample": "\n\nA transformer language model generates text by processing input text and producing a sequence of tokens, such as words"
+    },
+    "int8": {
+      "weights_mb": 1812.1,
+      "load_seconds": 14.9,
+      "perplexity": 9.698,
+      "tok_s_p50": 12.9,
+      "seconds_p50": 9.94,
+      "peak_alloc_mb": 1853.1,
+      "sample": "\n\nA transformer language model generates text by processing input text and producing a sequence of tokens, such as words"
+    },
+    "nf4": {
+      "weights_mb": 1006.8,
+      "load_seconds": 1.0,
+      "perplexity": 10.569,
+      "tok_s_p50": 42.1,
+      "seconds_p50": 3.04,
+      "peak_alloc_mb": 1152.7,
+      "sample": "\n\nA transformer language model generates text by processing input text and producing output text. Here's a step-by-step "
+    }
+  }
+}

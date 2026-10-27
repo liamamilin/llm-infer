@@ -1,0 +1,205 @@
+{
+  "chapter_id": "ch09",
+  "experiment_id": "concurrency",
+  "status": "PASS",
+  "timestamp": "2026-10-27T13:33:11.525321+00:00",
+  "platform": "Linux x86_64 py3.12.3",
+  "device": "cuda",
+  "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "model_revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "runtime": "transformers(ch04 server) vs vllm",
+  "runtime_version": {
+    "torch": "2.13.0+cu130"
+  },
+  "exact_command": "python -m experiments.ch09.concurrency",
+  "assertions": {
+    "no_failures_up_to_64_concurrent": true,
+    "failure_rate_below_2pct_everywhere": true,
+    "serial_server_does_not_scale": true,
+    "vllm_scales_with_concurrency": true,
+    "vllm_beats_serial_server_at_16": true
+  },
+  "git_sha": "unknown",
+  "notes": "",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "conditions": {
+    "dtype": "bfloat16",
+    "output_tokens": 128,
+    "ignore_eos": true,
+    "decoding": "greedy",
+    "streaming": true,
+    "warmup": "4 requests",
+    "requests_per_level": "max(8, concurrency x factor); factor hf=2 vllm=4",
+    "units": "tokens/s aggregate output; seconds"
+  },
+  "results": {
+    "hf": {
+      "startup_seconds": 7.4,
+      "gpu_mb_after_start": 4122,
+      "rows": [
+        {
+          "concurrency": 1,
+          "requests": 8,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 56.9,
+          "ttft_p50_s": 0.023,
+          "ttft_p95_s": 0.041,
+          "e2e_p50_s": 2.252,
+          "e2e_p95_s": 2.276,
+          "wall_s": 18.0
+        },
+        {
+          "concurrency": 2,
+          "requests": 8,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 55.3,
+          "ttft_p50_s": 2.277,
+          "ttft_p95_s": 3.23,
+          "e2e_p50_s": 4.346,
+          "e2e_p95_s": 5.468,
+          "wall_s": 18.52
+        },
+        {
+          "concurrency": 4,
+          "requests": 8,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 44.9,
+          "ttft_p50_s": 7.821,
+          "ttft_p95_s": 9.488,
+          "e2e_p50_s": 11.053,
+          "e2e_p95_s": 12.438,
+          "wall_s": 22.8
+        },
+        {
+          "concurrency": 8,
+          "requests": 16,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 41.1,
+          "ttft_p50_s": 21.432,
+          "ttft_p95_s": 22.409,
+          "e2e_p50_s": 24.581,
+          "e2e_p95_s": 25.544,
+          "wall_s": 49.89
+        },
+        {
+          "concurrency": 16,
+          "requests": 32,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 42.0,
+          "ttft_p50_s": 44.789,
+          "ttft_p95_s": 46.718,
+          "e2e_p50_s": 47.657,
+          "e2e_p95_s": 49.759,
+          "wall_s": 97.54
+        }
+      ]
+    },
+    "vllm": {
+      "startup_seconds": 34.5,
+      "gpu_mb_after_start": 16296,
+      "rows": [
+        {
+          "concurrency": 1,
+          "requests": 8,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 169.1,
+          "ttft_p50_s": 0.035,
+          "ttft_p95_s": 0.036,
+          "e2e_p50_s": 0.728,
+          "e2e_p95_s": 0.729,
+          "wall_s": 5.82
+        },
+        {
+          "concurrency": 2,
+          "requests": 8,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 327.9,
+          "ttft_p50_s": 0.045,
+          "ttft_p95_s": 0.055,
+          "e2e_p50_s": 0.748,
+          "e2e_p95_s": 0.76,
+          "wall_s": 3.0
+        },
+        {
+          "concurrency": 4,
+          "requests": 16,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 631.8,
+          "ttft_p50_s": 0.053,
+          "ttft_p95_s": 0.059,
+          "e2e_p50_s": 0.776,
+          "e2e_p95_s": 0.787,
+          "wall_s": 3.11
+        },
+        {
+          "concurrency": 8,
+          "requests": 32,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 1195.6,
+          "ttft_p50_s": 0.062,
+          "ttft_p95_s": 0.072,
+          "e2e_p50_s": 0.82,
+          "e2e_p95_s": 0.834,
+          "wall_s": 3.29
+        },
+        {
+          "concurrency": 16,
+          "requests": 64,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 2198.9,
+          "ttft_p50_s": 0.073,
+          "ttft_p95_s": 0.09,
+          "e2e_p50_s": 0.89,
+          "e2e_p95_s": 0.909,
+          "wall_s": 3.58
+        },
+        {
+          "concurrency": 32,
+          "requests": 128,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 3597.8,
+          "ttft_p50_s": 0.092,
+          "ttft_p95_s": 0.17,
+          "e2e_p50_s": 1.077,
+          "e2e_p95_s": 1.152,
+          "wall_s": 4.37
+        },
+        {
+          "concurrency": 64,
+          "requests": 256,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 5461.0,
+          "ttft_p50_s": 0.085,
+          "ttft_p95_s": 0.588,
+          "e2e_p50_s": 1.277,
+          "e2e_p95_s": 1.795,
+          "wall_s": 5.77
+        },
+        {
+          "concurrency": 128,
+          "requests": 512,
+          "failures": 0,
+          "errors": {},
+          "output_tokens_per_s": 4198.3,
+          "ttft_p50_s": 1.053,
+          "ttft_p95_s": 4.984,
+          "e2e_p50_s": 2.622,
+          "e2e_p95_s": 6.788,
+          "wall_s": 14.97
+        }
+      ]
+    }
+  }
+}

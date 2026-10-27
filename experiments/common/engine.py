@@ -17,8 +17,8 @@ class Token:
 
 
 class Engine:
-    def __init__(self, dtype=torch.float32, device: str | None = None):
-        self.tok, self.model, self.device = load(dtype=dtype, device=device)
+    def __init__(self, dtype=torch.float32, device: str | None = None, size: str = "small"):
+        self.tok, self.model, self.device = load(dtype=dtype, device=device, size=size)
         self.lock = threading.Lock()  # 单模型单设备：同一时刻只跑一个请求（第 09 章再谈并发）
 
     def encode_chat(self, messages: list[dict]) -> torch.Tensor:

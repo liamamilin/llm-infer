@@ -20,7 +20,8 @@ def _git_sha() -> str:
 
 def write_run(chapter_id: str, experiment_id: str, status: str, assertions: dict,
               runtime_version: dict, device: str, command: str, notes: str = "",
-              extra: dict | None = None) -> str:
+              extra: dict | None = None, runtime: str = "transformers", model_id: str = MODEL_ID,
+              model_revision: str = MODEL_REVISION) -> str:
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     now = datetime.now(timezone.utc)
     record = {
@@ -30,15 +31,21 @@ def write_run(chapter_id: str, experiment_id: str, status: str, assertions: dict
         "timestamp": now.isoformat(),
         "platform": f"{platform.system()} {platform.machine()} py{platform.python_version()}",
         "device": device,
-        "model_id": MODEL_ID,
-        "model_revision": MODEL_REVISION,
-        "runtime": "transformers",
+        "model_id": model_id,
+        "model_revision": model_revision,
+        "runtime": runtime,
         "runtime_version": runtime_version,
         "exact_command": command,
         "assertions": assertions,
         "git_sha": _git_sha(),
         "notes": notes,
     }
+    try:
+        import torch
+        if torch.cuda.is_available():
+            record["gpu"] = torch.cuda.get_device_name(0)
+    except Exception:
+        pass
     if extra:
         record.update(extra)
     path = RUNS_DIR / f"{now:%Y%m%d}-{chapter_id}-{experiment_id}-{int(time.time())}.json"

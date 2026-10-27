@@ -1,0 +1,95 @@
+{
+  "chapter_id": "ch08",
+  "experiment_id": "prefix_cache",
+  "status": "PASS",
+  "timestamp": "2026-10-27T12:41:17.987889+00:00",
+  "platform": "Linux x86_64 py3.12.3",
+  "device": "cuda",
+  "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+  "model_revision": "31b70e2e869a7173562077fd711b654946d38674",
+  "runtime": "vllm",
+  "runtime_version": {
+    "torch": "2.13.0+cu130"
+  },
+  "exact_command": "python -m experiments.ch08.prefix_cache",
+  "assertions": {
+    "prompt_is_long": true,
+    "same_outputs_with_and_without_cache": true,
+    "first_request_with_cache_is_a_miss": true,
+    "cache_hits_faster_than_no_cache": true
+  },
+  "git_sha": "unknown",
+  "notes": "",
+  "gpu": "NVIDIA GeForce RTX 4080 SUPER",
+  "conditions": {
+    "requests": 24,
+    "max_tokens": 1,
+    "sequential": true,
+    "warmup": 3,
+    "decoding": "greedy",
+    "prompt_tokens": 1845
+  },
+  "cache_off_ms": [
+    92.0,
+    92.6,
+    94.1,
+    93.7,
+    93.6,
+    93.5,
+    92.8,
+    93.4,
+    92.9,
+    92.6,
+    94.1,
+    93.8,
+    94.0,
+    93.8,
+    93.6,
+    94.0,
+    93.3,
+    93.3,
+    92.5,
+    92.5,
+    92.4,
+    93.9,
+    93.7,
+    93.3
+  ],
+  "cache_on_ms": [
+    93.6,
+    36.9,
+    38.8,
+    36.9,
+    39.1,
+    37.8,
+    36.1,
+    38.1,
+    36.4,
+    37.8,
+    36.6,
+    38.0,
+    37.0,
+    36.4,
+    36.4,
+    38.1,
+    36.5,
+    36.8,
+    36.4,
+    37.7,
+    36.4,
+    36.0,
+    36.0,
+    37.0
+  ],
+  "summary": {
+    "off": {
+      "p50_ms": 93.5,
+      "max_ms": 94.1
+    },
+    "on_first": 93.6,
+    "on_hits": {
+      "p50_ms": 36.9,
+      "max_ms": 39.1
+    }
+  }
+}

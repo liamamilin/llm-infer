@@ -29,6 +29,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m experiments.ch02.trace          # 另有 ch03.sampling / ch04.verify / ch05.bench / ch06.kv_cache
 ```
 
+第 07—09 章需要 NVIDIA GPU（依赖见 `requirements-gpu.txt`，用 `scripts/gpu_sync.sh` 同步到 GPU 机器）：
+
+```bash
+python -m experiments.ch07.quant_hf && python -m experiments.ch07.vllm_fp8
+python -m experiments.ch08.prefix_cache && python -m experiments.ch09.concurrency
+python -m experiments.ch10.decide   # 只读 evidence/public/，不需要 GPU
+```
+
 Python 标准库预检：
 
 ```bash
