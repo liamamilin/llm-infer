@@ -11,7 +11,7 @@ REQUIRED = {"chapter_id", "experiment_id", "status", "timestamp", "platform", "m
 class EvidenceTest(unittest.TestCase):
     def test_all_public_evidence_is_valid(self):
         files = sorted(PUB.glob("ch*.json"))
-        self.assertGreaterEqual(len(files), 12)
+        self.assertGreaterEqual(len(files), 16)
         for f in files:
             with self.subTest(f=f.name):
                 text = f.read_text()

@@ -17,5 +17,9 @@
 | ch08 prefix_cache | PASS（RTX 4080 SUPER） | [`public/ch08-prefix_cache.json`](public/ch08-prefix_cache.json) |
 | ch09 concurrency | PASS（RTX 4080 SUPER） | [`public/ch09-concurrency.json`](public/ch09-concurrency.json) |
 | ch10 decide | PASS（汇总上述证据） | [`public/ch10-decide.json`](public/ch10-decide.json) |
+| ch11 guardrails | PASS（Apple M4 Pro / MPS） | [`public/ch11-guardrails.json`](public/ch11-guardrails.json) |
+| ch11 guardrails_large | PASS（RTX 4080 SUPER） | [`public/ch11-guardrails_large.json`](public/ch11-guardrails_large.json) |
+| ch12 report | PASS（汇总全部证据） | [`public/ch12-report.json`](public/ch12-report.json) |
+| ch12 clean_room | PASS（洁净室复现） | [`public/ch12-clean_room.json`](public/ch12-clean_room.json) |
 
-第 11、12 章：`NOT_RUN`。SGLang 等未测试的引擎不在任何结论里。
+SGLang 等未测试的引擎不在任何结论里。

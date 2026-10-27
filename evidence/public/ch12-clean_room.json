@@ -1,0 +1,67 @@
+{
+  "chapter_id": "ch12",
+  "experiment_id": "clean_room",
+  "status": "PASS",
+  "timestamp": "2026-10-27T15:26:37.464277+00:00",
+  "platform": "Darwin arm64 py3.12.14",
+  "device": "mps",
+  "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "runtime": "transformers",
+  "runtime_version": {
+    "python": "3.12.14",
+    "fastapi": "0.162.0",
+    "httpx": "0.28.1",
+    "torch": "2.14.1",
+    "transformers": "5.21.0",
+    "uvicorn": "0.54.0"
+  },
+  "exact_command": "python -m experiments.ch12.clean_room",
+  "assertions": {
+    "working_tree_was_clean": true,
+    "installed_only_from_requirements": true,
+    "ch00_smoke_exit_0": true,
+    "ch04_http_stream_exit_0": true,
+    "ch11_guardrails_exit_0": true,
+    "evidence_tests_exit_0": true,
+    "fresh_runs_all_pass": true
+  },
+  "git_sha": "75b8b112b087262bdb415aae51a0675b6a303a59",
+  "notes": "",
+  "cloned_commit": "75b8b112b087262bdb415aae51a0675b6a303a59",
+  "steps": {
+    "clone": {
+      "exit": 0,
+      "seconds": 0.1
+    },
+    "venv": {
+      "exit": 0,
+      "seconds": 1.1
+    },
+    "pip_install": {
+      "exit": 0,
+      "seconds": 33.1
+    },
+    "ch00_smoke": {
+      "exit": 0,
+      "seconds": 192.3
+    },
+    "ch04_http_stream": {
+      "exit": 0,
+      "seconds": 5.4
+    },
+    "ch11_guardrails": {
+      "exit": 0,
+      "seconds": 30.3
+    },
+    "evidence_tests": {
+      "exit": 0,
+      "seconds": 0.0
+    }
+  },
+  "fresh_run_status": {
+    "ch00": "PASS",
+    "ch04": "PASS",
+    "ch11": "PASS"
+  }
+}
