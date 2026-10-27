@@ -23,8 +23,8 @@ description: '由 evidence/public 自动生成，不含手写数字'
 | ch08 | prefix_cache | PASS | cuda | SmolLM2-1.7B-Instruct | 4/4 | [ch08-prefix_cache.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch08-prefix_cache.json) |
 | ch09 | concurrency | PASS | cuda | SmolLM2-1.7B-Instruct | 5/5 | [ch09-concurrency.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch09-concurrency.json) |
 | ch10 | decide | PASS | none (reads evidence) | SmolLM2-1.7B-Instruct | 6/6 | [ch10-decide.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch10-decide.json) |
-| ch11 | guardrails | PASS | mps | SmolLM2-135M-Instruct | 24/24 | [ch11-guardrails.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch11-guardrails.json) |
-| ch11 | guardrails_large | PASS | cuda | SmolLM2-1.7B-Instruct | 24/24 | [ch11-guardrails_large.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch11-guardrails_large.json) |
+| ch11 | guardrails | PASS | mps | SmolLM2-135M-Instruct | 25/25 | [ch11-guardrails.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch11-guardrails.json) |
+| ch11 | guardrails_large | PASS | cuda | SmolLM2-1.7B-Instruct | 25/25 | [ch11-guardrails_large.json](https://github.com/liamamilin/llm-infer/blob/main/evidence/public/ch11-guardrails_large.json) |
 
 ## 2. 关键数字
 
@@ -60,12 +60,12 @@ description: '由 evidence/public 自动生成，不含手写数字'
 
 | 项目 | 135M / MPS | 1.7B / RTX 4080 SUPER |
 |---|---|---|
-| 24 并发突发：429 / 503 / 200 个数 | 20/2/2 | 20/2/2 |
-| 护栏下最长响应（s） | 1.14 | 1.82 |
-| 无护栏（ch04 服务）最长响应（s） | 13.51 | 19.81 |
+| 24 并发突发：429 / 503 / 200 个数 | 20/1/3 | 20/2/2 |
+| 护栏下最长响应（s） | 1.02 | 1.47 |
+| 无护栏（ch04 服务）最长响应（s） | 8.07 | 18.29 |
 | 排队超时返回 503 的耗时（s） | 1.01 | 1.01 |
 | 客户端断开后名额回收（s） | 0.06 | 0.04 |
-| kill -9 后恢复就绪（s） | 6.9 | 8.6 |
+| kill -9 后恢复就绪（s） | 6.4 | 8.9 |
 
 ## 3. 局限（均已在对应章节写明）
 

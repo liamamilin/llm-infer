@@ -34,7 +34,10 @@ export default defineConfig({
           { text: '07 · 量化（GPU）', link: '/chapters/ch07' },
           { text: '08 · Prefix Caching（GPU）', link: '/chapters/ch08' },
           { text: '09 · Batching 与并发（GPU）', link: '/chapters/ch09' },
-          { text: '10 · 引擎选型', link: '/chapters/ch10' }
+          { text: '10 · 引擎选型', link: '/chapters/ch10' },
+          { text: '11 · 稳定服务', link: '/chapters/ch11' },
+          { text: '12 · 完整交付', link: '/chapters/ch12' },
+          { text: '评估报告（自动生成）', link: '/chapters/report' }
         ] }
       ]
     },

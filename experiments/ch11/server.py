@@ -4,6 +4,7 @@
 """
 import json
 import os
+import sys
 import threading
 import time
 import uuid
@@ -29,12 +30,17 @@ engine: Engine | None = None
 ready = False
 started = time.time()
 state_lock = threading.Lock()
+log_lock = threading.Lock()
 counters = {"requests": 0, "ok": 0, "rejected_429": 0, "queue_timeout_503": 0, "deadline_timeout": 0,
             "not_ready_503": 0, "errors_500": 0, "inflight": 0}
 
 
 def log(**fields):
-    print(json.dumps({"ts": round(time.time(), 3), **fields}, ensure_ascii=False), flush=True)
+    # 一次 write 写完整的一行：print() 会把正文和换行拆成两次写入，多线程时两条日志会挤在同一行
+    line = json.dumps({"ts": round(time.time(), 3), **fields}, ensure_ascii=False) + "\n"
+    with log_lock:
+        sys.stdout.write(line)
+        sys.stdout.flush()
 
 
 def bump(key: str, delta: int = 1):

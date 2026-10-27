@@ -2,7 +2,7 @@
   "chapter_id": "ch12",
   "experiment_id": "report",
   "status": "PASS",
-  "timestamp": "2026-10-27T15:11:11.908288+00:00",
+  "timestamp": "2026-10-27T15:21:52.394241+00:00",
   "platform": "Darwin arm64 py3.12.14",
   "device": "none (reads evidence)",
   "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
@@ -21,7 +21,7 @@
     "covers_ch00_to_ch11": true,
     "report_is_deterministic": true
   },
-  "git_sha": "b98d34e40fe1ac3aa56e5cb107e21453d1d0bf2b",
+  "git_sha": "196ad7dd6a907fea76d03eb0769753b313663355",
   "notes": "",
   "report_path": "docs/chapters/report.md",
   "report_lines": 77

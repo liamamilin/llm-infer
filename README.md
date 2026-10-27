@@ -37,6 +37,14 @@ python -m experiments.ch08.prefix_cache && python -m experiments.ch09.concurrenc
 python -m experiments.ch10.decide   # 只读 evidence/public/，不需要 GPU
 ```
 
+第 11、12 章：
+
+```bash
+.venv/bin/python -m experiments.ch11.verify       # 本机；GPU 上加 MODEL_SIZE=large DTYPE=bfloat16
+.venv/bin/python -m experiments.ch12.report       # 重新生成评估报告
+.venv/bin/python -m experiments.ch12.clean_room   # 克隆已提交的 HEAD，新建 venv，从零复现（需联网，约十几分钟）
+```
+
 Python 标准库预检：
 
 ```bash

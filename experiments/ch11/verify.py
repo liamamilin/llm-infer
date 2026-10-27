@@ -55,6 +55,14 @@ def burst(base, n, **body):
     return res
 
 
+def _is_json(line):
+    try:
+        json.loads(line)
+        return True
+    except ValueError:
+        return False
+
+
 def wait_until(fn, timeout, step=0.1):
     t0 = time.time()
     while time.time() - t0 < timeout:
@@ -131,7 +139,7 @@ def main() -> int:
                           "p50_latency_429_s": statistics.median(by[429]) if 429 in by else None,
                           "max_latency_s": round(bounded_max, 2)}
         time.sleep(0.3)
-        rej_logs = [json.loads(x) for x in open(log_path) if x.startswith("{") and '"status": 429' in x]
+        rej_logs = [json.loads(x) for x in open(log_path) if x.startswith("{") and '"status": 429' in x and _is_json(x)]
         # 服务端是什么时候“处理”到第一个 429 的？晚了说明请求在到达处理函数之前就在排队（事件循环/GIL 被占用）
         handler_delay = min(x["ts"] for x in rej_logs) - burst_t0 if rej_logs else None
         print(f"first 429 handled {handler_delay:.2f}s after burst start; handler time {max(x['total_ms'] for x in rej_logs)}ms")
@@ -185,12 +193,13 @@ def main() -> int:
         # F. 日志与请求 ID
         code3, _, _, hdr = post(base, rid="trace-me-123", max_tokens=6)
         time.sleep(0.3)
-        lines = [json.loads(x) for x in open(log_path) if x.startswith("{")]
+        lines = [json.loads(x) for x in open(log_path) if x.startswith("{") and _is_json(x)]
         reqs = [x for x in lines if x.get("event") == "request"]
         a["request_id_echoed"] = hdr.get("x-request-id") == "trace-me-123"
         a["request_logged_with_id"] = any(x["request_id"] == "trace-me-123" and x["status"] == 200 for x in reqs)
         a["rejections_logged"] = {429, 503} <= {x["status"] for x in reqs}
         a["logs_are_json_lines_with_latency"] = all("total_ms" in x for x in reqs)
+        a["every_log_line_is_one_json_object"] = all(_is_json(x) for x in open(log_path) if x.startswith("{"))
         m = httpx.get(f"{base}/metrics").json()
         a["metrics_match_burst"] = m["rejected_429"] >= codes.count(429) and m["queue_timeout_503"] >= 1
         extra["metrics"] = {k: v for k, v in m.items() if k not in ("pid", "uptime_seconds")}

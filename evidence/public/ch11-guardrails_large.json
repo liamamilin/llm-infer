@@ -2,7 +2,7 @@
   "chapter_id": "ch11",
   "experiment_id": "guardrails_large",
   "status": "PASS",
-  "timestamp": "2026-10-27T15:08:08.185531+00:00",
+  "timestamp": "2026-10-27T15:21:19.625258+00:00",
   "platform": "Linux x86_64 py3.12.3",
   "device": "cuda",
   "model_id": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
@@ -32,6 +32,7 @@
     "request_logged_with_id": true,
     "rejections_logged": true,
     "logs_are_json_lines_with_latency": true,
+    "every_log_line_is_one_json_object": true,
     "metrics_match_burst": true,
     "crash_recovered": true,
     "request_ok_after_recovery": true,
@@ -42,8 +43,8 @@
   "git_sha": "unknown",
   "notes": "",
   "gpu": "NVIDIA GeForce RTX 4080 SUPER",
-  "alive_seconds": 5.93,
-  "ready_seconds": 8.42,
+  "alive_seconds": 5.51,
+  "ready_seconds": 7.66,
   "burst": {
     "requests": 24,
     "status_counts": {
@@ -51,9 +52,9 @@
       "429": 20,
       "503": 2
     },
-    "p50_latency_429_s": 0.07,
-    "max_latency_s": 1.82,
-    "first_429_handled_after_s": 0.04,
+    "p50_latency_429_s": 0.02,
+    "max_latency_s": 1.47,
+    "first_429_handled_after_s": 0.05,
     "max_429_handler_ms": 0
   },
   "queue_timeout": {
@@ -61,14 +62,14 @@
     "latency_s": 1.01
   },
   "deadline": {
-    "latency_s": 2.01,
-    "completion_tokens": 75,
+    "latency_s": 2.02,
+    "completion_tokens": 95,
     "finish_reason": "timeout"
   },
   "disconnect": {
     "slot_freed_seconds": 0.04,
     "next_status": 200,
-    "next_latency_s": 0.22
+    "next_latency_s": 0.18
   },
   "metrics": {
     "requests": 30,
@@ -86,7 +87,7 @@
     }
   },
   "recovery": {
-    "seconds_to_ready": 8.6
+    "seconds_to_ready": 8.9
   },
   "graceful": {
     "chunks_received": 48,
@@ -95,7 +96,7 @@
   "baseline_burst": {
     "requests": 24,
     "all_200": true,
-    "max_latency_s": 19.81
+    "max_latency_s": 18.29
   },
   "limits": {
     "max_inflight": 4,
